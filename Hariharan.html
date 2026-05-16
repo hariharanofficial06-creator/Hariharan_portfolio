@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hari Haran R | Portfolio</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:#0f172a;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        ul{
+            list-style:none;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            z-index:1000;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:rgba(0,0,0,0.2);
+            backdrop-filter:blur(10px);
+        }
+
+        .logo{
+            font-size:32px;
+            font-weight:700;
+            color:white;
+        }
+
+        nav ul{
+            display:flex;
+            gap:40px;
+        }
+
+        nav ul li a{
+            color:white;
+            font-size:18px;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:darkcyan;
+        }
+
+        .contact-btn{
+            padding:14px 35px;
+            border:2px solid white;
+            color:white;
+            transition:0.3s;
+        }
+
+        .contact-btn:hover{
+            background:white;
+            color:black;
+        }
+
+        /* ================= HERO SECTION ================= */
+
+        .hero{
+            position:relative;
+            width:100%;
+            height:100vh;
+
+            overflow:hidden;
+
+            display:flex;
+            align-items:center;
+        }
+
+        /* BACKGROUND IMAGE */
+
+        .hero::after{
+
+            content:'';
+
+            position:absolute;
+
+            width:100%;
+            height:100%;
+
+            background-image:url("Profile_Pic.jpeg");
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+
+            top:0;
+            left:0;
+
+            transform:scale(1);
+
+            transition:transform 2s ease;
+
+            z-index:0;
+        }
+
+        /* HERO HOVER ZOOM */
+
+        .hero:hover::after{
+            transform:scale(1.08);
+        }
+
+        /* DARK OVERLAY */
+
+        .hero::before{
+
+            content:'';
+
+            position:absolute;
+
+            width:100%;
+            height:100%;
+
+            background:rgba(0,0,0,0.45);
+
+            top:0;
+            left:0;
+
+            z-index:1;
+        }
+
+        /* HERO CONTENT */
+
+        .hero-content{
+
+            position:relative;
+
+            z-index:2;
+
+            width:100%;
+
+            padding-left:10%;
+
+            animation:fadeIn 2s ease;
+        }
+
+        .hero-content h3{
+
+            font-size:35px;
+
+            font-weight:500;
+
+            color:white;
+
+            margin-bottom:10px;
+        }
+
+        .hero-content h1{
+
+            font-size:90px;
+
+            line-height:1.1;
+
+            font-weight:800;
+
+            color:darkcyan;
+
+            animation:slideLeft 1.5s ease;
+        }
+
+        .hero-content h2{
+
+            font-size:32px;
+
+            margin-bottom:35px;
+
+            font-weight:500;
+
+            color:white;
+
+            animation:slideRight 1.5s ease;
+        }
+
+        .hero-btn{
+
+            display:inline-block;
+
+            padding:18px 45px;
+
+            background:black;
+
+            color:white;
+
+            font-size:18px;
+
+            font-weight:600;
+
+            border-radius:5px;
+
+            transition:0.4s;
+
+            animation:fadeUp 2s ease;
+        }
+
+        .hero-btn:hover{
+
+            background:darkcyan;
+
+            transform:translateY(-6px);
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        @keyframes slideLeft{
+
+            from{
+                transform:translateX(-100px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateX(0);
+                opacity:1;
+            }
+        }
+
+        @keyframes slideRight{
+
+            from{
+                transform:translateX(100px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateX(0);
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeUp{
+
+            from{
+                transform:translateY(50px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+        /* ================= SECTION COMMON ================= */
+
+        section{
+            padding:100px 10%;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:60px;
+        }
+
+        .section-title h2{
+            font-size:50px;
+            color:darkcyan;
+            margin-bottom:10px;
+        }
+
+        .section-title p{
+            color:#cbd5e1;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about{
+            background:#111827;
+        }
+
+        .about-content{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:40px;
+        }
+
+        .about-box{
+            background:#1e293b;
+            padding:40px;
+            border-radius:15px;
+            transition:0.4s;
+        }
+
+        .about-box:hover{
+            transform:translateY(-10px);
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .about-box h3{
+            margin-bottom:20px;
+            color:darkcyan;
+            font-size:28px;
+        }
+
+        .about-box p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        /* ================= EXPERIENCE ================= */
+
+        .experience{
+            background:#0f172a;
+        }
+
+        .experience-container{
+            display:flex;
+            flex-direction:column;
+            gap:30px;
+        }
+
+        .experience-card{
+            background:#1e293b;
+            padding:35px;
+            border-left:6px solid darkcyan;
+            border-radius:10px;
+            transition:0.4s;
+        }
+
+        .experience-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .experience-card h3{
+            font-size:28px;
+            color:darkcyan;
+            margin-bottom:10px;
+        }
+
+        .experience-card h4{
+            margin-bottom:15px;
+            color:#e2e8f0;
+        }
+
+        .experience-card p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills{
+            background:#111827;
+        }
+
+        .skills-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .skill-card{
+            background:#1e293b;
+            padding:35px;
+            border-radius:15px;
+            transition:0.4s;
+        }
+
+        .skill-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .skill-card h3{
+            color:darkcyan;
+            margin-bottom:20px;
+            font-size:26px;
+        }
+
+        .skill-card ul li{
+            margin-bottom:12px;
+            color:#cbd5e1;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact{
+            background:#0f172a;
+        }
+
+        .contact-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .contact-box{
+            background:#1e293b;
+            padding:40px;
+            border-radius:15px;
+            text-align:center;
+            transition:0.4s;
+        }
+
+        .contact-box:hover{
+            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .contact-box h3{
+            color:darkcyan;
+            margin-bottom:15px;
+            font-size:28px;
+        }
+
+        .contact-box p{
+            color:#cbd5e1;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer{
+            background:black;
+            padding:30px;
+            text-align:center;
+            color:#94a3b8;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:1000px){
+
+            .hero-content{
+                padding-left:8%;
+            }
+
+            .hero-content h1{
+                font-size:65px;
+            }
+
+            .about-content{
+                grid-template-columns:1fr;
+            }
+        }
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                gap:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero-content h1{
+                font-size:50px;
+            }
+
+            .hero-content h2{
+                font-size:24px;
+            }
+
+            .hero-content h3{
+                font-size:24px;
+            }
+
+            .section-title h2{
+                font-size:40px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            HARI HARAN R
+        </div>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#experience">Experience</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <a href="#contact" class="contact-btn">
+            Contact Me
+        </a>
+
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h3>Hello, I am</h3>
+
+            <h1>
+                Hari Haran R
+            </h1>
+
+            <h2>
+                Business Development Professional
+            </h2>
+
+            <a href="#about" class="hero-btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <h2>About Me</h2>
+
+            <p>Professional Summary</p>
+
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-box">
+
+                <h3>Who I Am</h3>
+
+                <p>
+                    Results-driven professional with experience across healthcare operations,
+                    financial services, business development, and client relationship management.
+                </p>
+
+            </div>
+
+            <div class="about-box">
+
+                <h3>What I Do</h3>
+
+                <p>
+                    Specialized in operations management, KYC processing,
+                    audit support, digital marketing, stakeholder communication,
+                    and team leadership.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section class="experience" id="experience">
+
+        <div class="section-title">
+
+            <h2>Experience</h2>
+
+            <p>Professional Journey</p>
+
+        </div>
+
+        <div class="experience-container">
+
+            <div class="experience-card">
+
+                <h3>Business Development Manager</h3>
+
+                <h4>Yaash & Winbioz Pharma | Jan 2025 - Present</h4>
+
+                <p>
+                    Managed client communication, digital marketing,
+                    invoice validation, GDP operations,
+                    and coordinated sales teams.
+                </p>
+
+            </div>
+
+            <div class="experience-card">
+
+                <h3>Senior Executive Officer</h3>
+
+                <h4>CAMS | 1.6 Years</h4>
+
+                <p>
+                    Handled KYC updates, AUM transfers,
+                    funding operations, audit support,
+                    and data validation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+
+            <h2>Skills</h2>
+
+            <p>My Expertise</p>
+
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>Operations</h3>
+
+                <ul>
+
+                    <li>Financial Operations</li>
+
+                    <li>KYC Processing</li>
+
+                    <li>Invoice Management</li>
+
+                    <li>Audit Support</li>
+
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Business</h3>
+
+                <ul>
+
+                    <li>Business Development</li>
+
+                    <li>Lead Generation</li>
+
+                    <li>Sales Coordination</li>
+
+                    <li>Digital Marketing</li>
+
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Technical</h3>
+
+                <ul>
+
+                    <li>MS Excel</li>
+
+                    <li>CRM Tools</li>
+
+                    <li>Photoshop</li>
+
+                    <li>Adobe Illustrator</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+
+            <h2>Contact Me</h2>
+
+            <p>Let's Work Together</p>
+
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-box">
+
+                <h3>Email</h3>
+
+                <p>
+    		<a style="color:#cbd5e1;"href="mailto:hariharanofficial06@gmail.com" class="email-link">
+      		  hariharanofficial06@gmail.com
+   		 </a>
+		</p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>Phone</h3>
+
+                <p>
+                    +91 9940669463
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>Location</h3>
+
+                <p>
+                    Chennai, Tamil Nadu, India
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Hari Haran R | Portfolio Website
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
